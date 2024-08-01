@@ -1,0 +1,116 @@
+<!--
+	此示例下载自 https://echarts.apache.org/examples/zh/editor.html?c=bar-negative2&code=MYewdgzgLgBANgQwEYFM4CUCWBzAFrAXhgG8AoGGABxAkyk3AC4YByAJx3xdIF8BuUiEr1wMImQr0ocFMwkUYUFAA8ozFoBAVQPjqgBnVAlEqAKV0DePoGj1QPiugQANA73KAeBUBwcoG4DW4A-3QM6Kgb59ADqaB9v0CF0YD-1bgoeABpyRRAQOHpKOXDJDmxsFDZ1BGVMCBYwhRh0zIAFEEwwJVSSeIUoAE9KWVYIXAQAExAAdyCFHnDQ8OwOZrjcqCFmAA4ABhyFJBAoEYBbZgBmCZ7p5QBBDIghqtr6lgA3BDgAVxRsyupaETB1Ecor3IhKODoAGRL6-Vz3sBQAGUajI9rlJAd1M0EI0UM1Orluoj1uFqttMmDFJDWMAEEpsCA2NVngp8hAvgC5DBGu1mAAzU4QFAwXq5MkfZBoKk0tr0xnM1mknYAFUwwAA1tzcLSYAy4EyWdMKK93lAKT9qdLebL-YrKtCoAhmABtUiVCgsQCoAToSbkWIAWG0A--q2hQsQCSwTala7AOnmnvNrEAHxF-8GsQBfeoA-6IMNsqAF0UcqUpgULsYKbcr8FGAEAtDgBhGhQF0QurqJAINhF6mGiXqYVzU6VxCoOCYl5a5hQNgXL25OmEhZ4srqYhIHgIro9mAGo2p_0UYgwE7neoTAB0AE4pnqQxQ5zA1wA2deTmB7hdLi7MNcAFgATCFgg-ALRr2_3vcv1djMYhc-nS8wJ-67LA-27gnGyIUHG_BAA
+	⚠ 请注意，该图表不是 Apache ECharts 官方示例，而是由用户代码生成的。请注意鉴别其内容。
+-->
+<!DOCTYPE html>
+<html lang="en" style="height: 100%">
+<head>
+  <meta charset="utf-8">
+</head>
+<body style="height: 100%; margin: 0">
+  <div id="container" style="height: 100%"></div>
+
+  
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/5.5.1/files/dist/echarts.min.js"></script>
+  
+  <!-- Uncomment this line if you want to dataTool extension
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/5.5.1/files/dist/extension/dataTool.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use gl extension
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts-gl/2/files/dist/echarts-gl.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-stat extension
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts-stat/latest/files/dist/ecStat.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-graph-modularity extension
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts-graph-modularity/2/files/dist/echarts-graph-modularity.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use map
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/4.9.0/files/map/js/world.js"></script>
+  -->
+  <!-- Uncomment these two lines if you want to use bmap extension
+  <script type="text/javascript" src="https://api.map.baidu.com/api?v=3.0&ak=YOUR_API_KEY"></script>
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/5.5.1/files/dist/extension/bmap.min.js"></script>
+  -->
+
+  <script type="text/javascript">
+    var dom = document.getElementById('container');
+    var myChart = echarts.init(dom, null, {
+      renderer: 'canvas',
+      useDirtyRect: false
+    });
+    var app = {};
+    
+    var option;
+
+    const labelRight = {
+  position: 'right'
+};
+option = {
+  title: {
+    text: '各土地利用类型生态价值与总价值相关系数统计图'
+  },
+  tooltip: {
+    trigger: 'axis',
+    axisPointer: {
+      type: 'shadow'
+    }
+  },
+  grid: {
+    top: 80,
+    bottom: 30
+  },
+  xAxis: {
+    type: 'value',
+    position: 'top',
+    splitLine: {
+      lineStyle: {
+        type: 'dashed'
+      }
+    }
+  },
+  yAxis: {
+    type: 'category',
+    axisLine: { show: false },
+    axisLabel: { show: false },
+    axisTick: { show: false },
+    splitLine: { show: false },
+    data: [
+
+      '耕地',
+      '水域',
+      '草地',
+      '林地',
+      '裸地',
+      '建设用地'
+    ]
+  },
+  series: [
+    {
+      name: 'Cost',
+      type: 'bar',
+      stack: 'Total',
+      label: {
+        show: true,
+        formatter: '{b}'
+      },
+      data: [
+        { value: 0.90, },
+        
+        0.69,
+       
+        { value: 0.42,  }, -0.22,
+        -0.88,{ value: -0.93,  },
+      ]
+    }
+  ]
+};
+
+    if (option && typeof option === 'object') {
+      myChart.setOption(option);
+    }
+
+    window.addEventListener('resize', myChart.resize);
+  </script>
+</body>
+</html>
